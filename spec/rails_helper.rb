@@ -2,6 +2,8 @@ ENV["RAILS_ENV"] ||= "test"
 
 require "simplecov"
 require "codeclimate-test-reporter"
+require 'capybara/poltergeist'
+
 SimpleCov.add_filter "vendor"
 
 SimpleCov.formatters = []
@@ -21,7 +23,7 @@ WebMock.disable_net_connect!(allow: "codeclimate.com", allow_localhost: true)
 # Require all support files.
 Dir[Rails.root.join("spec/support/**/*.rb")].each { |f| require f }
 
-Capybara.javascript_driver = :webkit
+Capybara.javascript_driver = :poltergeist
 
 ActiveRecord::Migration.check_pending!
 ActiveRecord::Migration.maintain_test_schema!
