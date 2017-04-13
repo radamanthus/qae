@@ -351,7 +351,7 @@ handleCompanyDetailsForm = ->
       newNestedForm.find(".duplicatable-nested-form").removeClass("if-js-hide")
       $( newNestedForm ).insertAfter( lastNestedForm )
 
-  $(document).on "ajax:success", ".company-details-forms form", (e, data, status, xhr) ->
+  $(document).on "ajax:success", ".company-details-forms form:not(.admin-search-collaborators-form)", (e, data, status, xhr) ->
     closest_form_group = $(this).closest(".form-group")
     if closest_form_group.hasClass("form-group-multiple")
       $(this).closest(".form-group-multiple-parent").replaceWith($(data))

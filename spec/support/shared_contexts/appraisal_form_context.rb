@@ -128,6 +128,7 @@ def assert_multiple_description_change(section_id, header_id)
   text2 = "should be saved"
 
   find("#{header_id} .panel-title a").click
+
   within section_id do
     unless section_id == moderated
       fill_in("assessor_assignment_level_of_innovation_desc", with: text)
@@ -143,7 +144,7 @@ def assert_multiple_description_change(section_id, header_id)
 
   within section_id do
     expect(page).to have_selector(".form-value p", text: text2, count: 1)
-    expect(page).to have_selector(".form-value p", text: text, count: 0)
+    expect(page).to have_no_content(text)
     all(".form-edit-link").last.click
     expect(page).to have_selector("textarea", text: text2)
   end

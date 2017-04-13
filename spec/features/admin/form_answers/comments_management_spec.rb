@@ -57,10 +57,13 @@ I want to be able to view, create and destroy the comments per application.
             find(".js-link-flag-comment").click # unclick flag
           end
           visit admin_form_answer_path(form_answer)
-          expect(page).to have_selector(".comment-flagged", count: 0)
         end
+
+        first("#admin-comments-heading a").click
+        expect(page).to have_css(".unflagged-visible")
       end
     end
+
     context "Critical comments" do
       it "adds flag to created comment" do
         first("#critical-comments-heading a").click
