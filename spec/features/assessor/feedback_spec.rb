@@ -16,10 +16,13 @@ describe "Assessor feedback management" do
 
       within "#section-feedback .level_of_innovation" do
         find("a.form-edit-link").click
+        expect(page).to have_content("Key strength")
+
         fill_in "feedback[level_of_innovation_strength]", with: "Feedback 101"
         click_link "Save"
+        wait_for_ajax
 
-        expect(page).to have_selector(".form-value", text: "Feedback 101")
+        expect(page).to have_content("Feedback 101")
       end
     end
   end
@@ -39,6 +42,7 @@ describe "Assessor feedback management" do
       find("#feedback-heading a").click
       expect(page).to have_selector(".feedback-holder", text: "Feedback Submitted")
       click_button "Unlock"
+      wait_for_ajax
 
       expect(page).to have_no_selector(".feedback-holder", text: "Feedback Submitted")
     end

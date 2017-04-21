@@ -28,7 +28,11 @@ html.no-js
 
     = yield(:head) if content_for?(:head)
 
-  body#admin-layout class="admin-layout #{controller_name}-page #{action_name}-page #{controller_name}-#{action_name}-page #{yield :page_class} #{'layout-dev' if Rails.env.development?}"
+    - if Rails.env.test?
+      script type="javascript"
+        | $.fx.off = true;
+
+body#admin-layout class="admin-layout #{controller_name}-page #{action_name}-page #{controller_name}-#{action_name}-page #{yield :page_class} #{'layout-dev' if Rails.env.development?}"
     #site-wrapper
       #site-wrapper-margin
         #site-header.clearfix

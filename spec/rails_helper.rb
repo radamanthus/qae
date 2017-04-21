@@ -2,7 +2,6 @@ ENV["RAILS_ENV"] ||= "test"
 
 require "simplecov"
 require "codeclimate-test-reporter"
-require 'capybara/poltergeist'
 
 SimpleCov.add_filter "vendor"
 
@@ -13,6 +12,7 @@ require "spec_helper"
 require File.expand_path("../../config/environment", __FILE__)
 require "rspec/rails"
 require "capybara/rspec"
+require 'capybara/poltergeist'
 require "shoulda/matchers"
 require "webmock/rspec"
 
