@@ -1,4 +1,4 @@
 .question-body
   p.question-context == @eligibility.class.hint(step)
-  = f.input question, as: :radio_buttons, item_wrapper_class: 'selectable', label_html: { class: 'visuallyhidden' }
+  = f.input question, as: :radio_buttons, item_wrapper_class: 'selectable', label_html: { class: 'visuallyhidden' }, readonly: nil
 span.clear
