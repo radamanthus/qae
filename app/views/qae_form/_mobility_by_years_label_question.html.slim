@@ -19,13 +19,13 @@
             span.date-input-field
               label for=question.input_name(suffix: "#{y}of3day")
                 ' Day
-              input.js-trigger-autosave.tiny.js-fy-day type="text" name=question.input_name(suffix: "#{y}of3day") value=question.input_value(suffix: "#{y}of3day") id=question.input_name(suffix: "#{y}of3day") maxlength=2 autocomplete="off" *possible_read_only_ops
+              input.js-trigger-autosave.tiny.js-fy-day type="text" name=question.input_name(suffix: "#{y}of3day") value=question.input_value(suffix: "#{y}of3day") id=question.input_name(suffix: "#{y}of3day") maxlength=2 autocomplete="off" data-field-name="Day" *possible_read_only_ops
             span.date-input-field
               label for=question.input_name(suffix: "#{y}of3month")
                 ' Month
-              input.js-trigger-autosave.tiny.js-fy-month type="text" name=question.input_name(suffix: "#{y}of3month") value=question.input_value(suffix: "#{y}of3month") id=question.input_name(suffix: "#{y}of3month") maxlength=2 autocomplete="off" *possible_read_only_ops
+              input.js-trigger-autosave.tiny.js-fy-month type="text" name=question.input_name(suffix: "#{y}of3month") value=question.input_value(suffix: "#{y}of3month") id=question.input_name(suffix: "#{y}of3month") maxlength=2 autocomplete="off" data-field-name="Month" *possible_read_only_ops
             span.date-input-field
               label for=question.input_name(suffix: "#{y}of3year")
                 ' Year
-              input.js-trigger-autosave.small.js-fy-year type="text" name=question.input_name(suffix: "#{y}of3year") value=question.input_value(suffix: "#{y}of3year") id=question.input_name(suffix: "#{y}of3year") maxlength=4 autocomplete="off" *possible_read_only_ops
+              input.js-trigger-autosave.small.js-fy-year type="text" name=question.input_name(suffix: "#{y}of3year") value=question.input_value(suffix: "#{y}of3year") id=question.input_name(suffix: "#{y}of3year") maxlength=4 autocomplete="off" data-field-name="Year" *possible_read_only_ops
     .clear

@@ -1,10 +1,10 @@
 .date-input role="group" aria-labelledby="q_#{question.key}_label" id="q_#{question.key}"
   label.date-input-field
     ' Day
-    input.js-trigger-autosave.tiny.js-date-input-day type="text" name=question.input_name(suffix: 'day') value=question.input_value(suffix: 'day') maxlength=2 autocomplete="off" *possible_read_only_ops
+    input.js-trigger-autosave.tiny.js-date-input-day type="text" name=question.input_name(suffix: 'day') value=question.input_value(suffix: 'day') maxlength=2 autocomplete="off" data-field-name="Day" *possible_read_only_ops
   label.date-input-field
     ' Month
-    input.js-trigger-autosave.tiny.js-date-input-month type="text" name=question.input_name(suffix: 'month') value=question.input_value(suffix: 'month') maxlength=2 autocomplete="off" *possible_read_only_ops
+    input.js-trigger-autosave.tiny.js-date-input-month type="text" name=question.input_name(suffix: 'month') value=question.input_value(suffix: 'month') maxlength=2 autocomplete="off" data-field-name="Month" *possible_read_only_ops
   label.date-input-field
     ' Year
-    input.js-trigger-autosave.small.js-date-input-year type="text" name=question.input_name(suffix: 'year') value=question.input_value(suffix: 'year') maxlength=4 autocomplete="off" *possible_read_only_ops
+    input.js-trigger-autosave.small.js-date-input-year type="text" name=question.input_name(suffix: 'year') value=question.input_value(suffix: 'year') maxlength=4 autocomplete="off" data-field-name="Year" *possible_read_only_ops

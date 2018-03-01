@@ -20,7 +20,7 @@ li.js-add-example class=(award.blank? ? "if-no-js-hide" : '') non-js-attribute=a
       label
         span.if-no-js-hide
           ' Award/personal honour title
-          input.js-trigger-autosave autocomplete="off" class="js-trigger-autosave medium" name="form[#{question.key}][#{index}][title]" type="text" value=award['title'] data-dependable-option-siffix="title" *possible_read_only_ops
+          input.js-trigger-autosave autocomplete="off" class="js-trigger-autosave medium" name="form[#{question.key}][#{index}][title]" type="text" value=award['title'] data-dependable-option-siffix="title" data-field-name="Award/personal honour title" *possible_read_only_ops
 
         span.if-js-hide
           strong
@@ -36,7 +36,7 @@ li.js-add-example class=(award.blank? ? "if-no-js-hide" : '') non-js-attribute=a
         label
           span.if-no-js-hide
             ' Year
-            input.js-trigger-autosave autocomplete="off" class="js-trigger-autosave medium" name="form[#{question.key}][#{index}][year]" type="text" value=award['year'] data-dependable-option-siffix="year" *possible_read_only_ops
+            input.js-trigger-autosave autocomplete="off" class="js-trigger-autosave medium" name="form[#{question.key}][#{index}][year]" type="text" value=award['year'] data-dependable-option-siffix="year" data-field-name="Award year" *possible_read_only_ops
 
           span.if-js-hide
             strong
@@ -52,7 +52,7 @@ li.js-add-example class=(award.blank? ? "if-no-js-hide" : '') non-js-attribute=a
     label for="form[#{question.key}][#{index}][details]"
       span.label-char-count-reposition
         ' Details
-    textarea.award-textarea.js-char-count.js-trigger-autosave rows="2" name="form[#{question.key}][#{index}][details]" id="form[#{question.key}][#{index}][details]" data-word-max=question.details_words_max data-dependable-option-siffix="details" *possible_read_only_ops
+    textarea.award-textarea.js-char-count.js-trigger-autosave rows="2" name="form[#{question.key}][#{index}][details]" id="form[#{question.key}][#{index}][details]" data-word-max=question.details_words_max data-dependable-option-siffix="details" data-field-name="Award details" *possible_read_only_ops
       = award['details']
   span.if-js-hide
     br

@@ -15,10 +15,10 @@ li.js-add-example
         .date-input.validate-date-start
           label.small.date-input-field
             ' Month
-            input.js-trigger-autosave.tiny.js-date-input-month type="text" name="form[position_details][#{index}][start_month]" value=position['start_month'] maxlength=2 autocomplete="off" *possible_read_only_ops
+            input.js-trigger-autosave.tiny.js-date-input-month type="text" name="form[position_details][#{index}][start_month]" value=position['start_month'] maxlength=2 autocomplete="off" data-field-name="Month" *possible_read_only_ops
           label.small.date-input-field
             ' Year
-            input.js-trigger-autosave.small.js-date-input-year type="text" name="form[position_details][#{index}][start_year]" value=position['start_year'] maxlength=4 autocomplete="off" *possible_read_only_ops
+            input.js-trigger-autosave.small.js-date-input-year type="text" name="form[position_details][#{index}][start_year]" value=position['start_year'] maxlength=4 autocomplete="off" data-field-name="Year" *possible_read_only_ops
     span.clear
     span.row.nominee-end-date-row
       span.span-3
@@ -28,20 +28,20 @@ li.js-add-example
         .date-input.validate-date-end
           label.small.date-input-field
             ' Month
-            input.js-trigger-autosave.tiny.js-date-input-month type="text" name="form[position_details][#{index}][end_month]" value=position['end_month'] maxlength=2 autocomplete="off" *(possible_read_only_ops.merge(ongoing_opts))
+            input.js-trigger-autosave.tiny.js-date-input-month type="text" name="form[position_details][#{index}][end_month]" value=position['end_month'] maxlength=2 autocomplete="off" data-field-name="Month" *(possible_read_only_ops.merge(ongoing_opts))
           label.small.date-input-field
             ' Year
-            input.js-trigger-autosave.small.js-date-input-year type="text" name="form[position_details][#{index}][end_year]" value=position['end_year'] maxlength=4 autocomplete="off" *(possible_read_only_ops.merge(ongoing_opts))
+            input.js-trigger-autosave.small.js-date-input-year type="text" name="form[position_details][#{index}][end_year]" value=position['end_year'] maxlength=4 autocomplete="off" data-field-name="Year" *(possible_read_only_ops.merge(ongoing_opts))
       span.span-3.date-ongoing
         br
         label.small
           input.js-trigger-autosave type="hidden" name="form[position_details][#{index}][ongoing]" value='0' *(possible_read_only_ops.merge(ongoing_opts))
-          input.js-trigger-autosave type="checkbox" name="form[position_details][#{index}][ongoing]" checked=('checked' if position['ongoing'] == '1') value='1' *possible_read_only_ops
+          input.js-trigger-autosave type="checkbox" name="form[position_details][#{index}][ongoing]" checked=('checked' if position['ongoing'] == '1') value='1' data-field-name="Ongoing" *possible_read_only_ops
           ' Ongoing
     span.clear
 
   label for="form[position_details][#{index}][details]"
     span.label-char-count-reposition
       ' Details
-  textarea.position-textarea.js-char-count.js-trigger-autosave rows="2" name="form[position_details][#{index}][details]" id="form[position_details][#{index}][details]" data-word-max=question.details_words_max *possible_read_only_ops
+  textarea.position-textarea.js-char-count.js-trigger-autosave rows="2" name="form[position_details][#{index}][details]" id="form[position_details][#{index}][details]" data-word-max=question.details_words_max data-field-name="Details" *possible_read_only_ops
     = position['details']

@@ -14,7 +14,7 @@
           - if errors && errors[question.key] && errors[question.key][index]
             li = errors[question.key][index]
         .clear
-        textarea.js-trigger-autosave.js-char-count rows=question.rows data-word-max=question.words_max name="#{question.input_name}[#{index}][desc_short]" id=question.input_name(suffix: "desc_short_#{placement}") *possible_read_only_ops
+        textarea.js-trigger-autosave.js-char-count rows=question.rows data-word-max=question.words_max name="#{question.input_name}[#{index}][desc_short]" data-field-name="Product/Service #{placement}" id=question.input_name(suffix: "desc_short_#{placement}") *possible_read_only_ops
           = item.present? ? item['desc_short'] : ''
         .clear
 

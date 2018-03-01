@@ -9,14 +9,17 @@ window.FormValidation =
     $(".errors-container").empty()
     $(".steps-progress-bar .js-step-link").removeClass("step-errors")
 
-  addErrorMessage: (question, message) ->
-    @appendMessage(question, message)
+  addErrorMessage: (question, message, aria_message = null) ->
+    @appendMessage(question, message, aria_message)
     @addErrorClass(question)
 
     @validates = false
 
-  appendMessage: (container, message) ->
-    container.find(".errors-container").first().append("<li aria-live='polite'>#{message}</li>")
+  appendMessage: (container, message, aria_message) ->
+    if !aria_message
+      aria_message = message
+
+    container.find(".errors-container").first().append("<li aria-live='assertive' aria-label='#{aria_message}'>#{message}</li>")
     @validates = false
 
   addErrorClass: (container) ->
@@ -72,6 +75,22 @@ window.FormValidation =
       if @isCheckboxQuestion(question)
         return question.find("input[type='checkbox']").filter(":checked").length
 
+  getInvalidField: (question) ->
+    if @isTextishQuestion(question)
+      return question.find("input[type='text'], input[type='number'], input[type='password'], input[type='email'], input[type='url'], textarea")
+
+    if @isSelectQuestion(question)
+      return question.find("select")
+
+    if @isOptionsQuestion(question)
+      return question.find("input[type='radio']")
+
+    if @isCheckboxQuestion(question)
+      return question.find("input[type='checkbox']")
+
+  toggleAriaInvalid: (field, invalid) ->
+    field.attr("aria-invalid", invalid ? "true" : "false")
+
   validateRequiredQuestion: (question) ->
     # if it's a conditional question, but condition was not satisfied
     conditional = true
@@ -100,11 +119,28 @@ window.FormValidation =
       for subquestion in subquestions
         if not @validateSingleQuestion($(subquestion))
           @logThis(question, "validateRequiredQuestion", "This field is required")
-          @addErrorMessage($(subquestion), "This field is required")
+          field = @getInvalidField($(subquestion))
+          aria_message = "This field is required"
+
+          if field.data("field-name")
+            aria_message = field.data("field-name") + " is required"
+          @toggleAriaInvalid(field, true)
+          @addErrorMessage($(subquestion), "This field is required", aria_message)
+        else
+          @toggleAriaInvalid(@getInvalidField($(subquestion)), false)
     else
       if not @validateSingleQuestion(question)
         @logThis(question, "validateRequiredQuestion", "This field is required")
-        @addErrorMessage(question, "This field is required")
+        field = @getInvalidField(question)
+        aria_message = "This field is required"
+
+        if field.data("field-name")
+          aria_message = field.data("field-name") + " is required"
+
+        @toggleAriaInvalid(field, true)
+        @addErrorMessage(question, "This field is required", aria_message)
+      else
+        @toggleAriaInvalid(@getInvalidField(question), false)
 
   validateMatchQuestion: (question) ->
     q = question.find(".match")
