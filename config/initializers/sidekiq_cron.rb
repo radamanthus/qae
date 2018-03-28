@@ -1,14 +1,14 @@
 default_schedule = {
   "email_notification_service" => {
-    "cron" => "0 * * * *",
+    "cron" => "*/5 * * * *",
     "class" => "Scheduled::EmailNotificationServiceWorker"
   },
   "trigger_audit_deadlines" => {
-    "cron" => "0 * * * *",
+    "cron" => "*/5 * * * *",
     "class" => "Scheduled::AuditDeadlineWorker"
   },
   "trigger_submission_deadlines" => {
-    "cron" => "0 * * * *",
+    "cron" => "*/5 * * * *",
     "class" => "Scheduled::SubmissionDeadlineWorker"
   },
   "form_data_pdf_hard_copy_generation_service" => {
